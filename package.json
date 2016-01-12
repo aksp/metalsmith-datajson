@@ -1,0 +1,25 @@
+{
+  "name": "metalsmith-datajson",
+  "version": "0.0.x",
+  "description": "Metalsmith plugin which parses json files from a data directory and exposed their properties as metadata.json on the file object",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/FrontEndStudio/metalsmith-datajson.git"
+  },
+  "keywords": [
+    "metalsmith"
+  ],
+  "author": "Arnoud van Susteren <arnoud@frontendstudio.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FrontEndStudio/metalsmith-datajson/issues"
+  },
+  "homepage": "https://github.com/FrontEndStudio/metalsmith-datajson#readme",
+  "dependencies": {
+    "fs": "0.0.2"
+  }
+}
