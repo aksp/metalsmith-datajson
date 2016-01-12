@@ -10,6 +10,10 @@ Metalsmith plugin which parses json files from a data directory and exposed thei
 ### install the metalsmit-datajson node_module
 
 ```bash
+~ npm install metalsmith-datajson --save-dev
+
+_ or _
+
 ~ npm install https://github.com/FrontEndStudio/metalsmith-datajson --save-dev
 ```
 
