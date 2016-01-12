@@ -1,13 +1,6 @@
 var fs = require('fs');
 
 /**
-* Expose `plugin`.
-*/
-
-module.exports = plugin;
-
-
-/**
 * Metalsmith plugin to read json data from directory and make it available as metadata.json
 *
 * @param {Object} opts
@@ -22,12 +15,12 @@ function plugin(opts){
   if (stats.isDirectory()) {
     fs.readdir(dir, function(err, files) {
       files.forEach(function (file) {
-        if (file.indexOf('.json') != -1) {
+        if (file.indexOf('.json') !== -1) {
           var path = dir + file;
           var basename = file.slice(0, -5);
 
           fs.readFile(path, 'utf8', function (err, data) {
-            if (err) throw err;
+            if (err) { throw err; }
               obj[basename] = JSON.parse(data);
           });
         }
@@ -42,3 +35,9 @@ function plugin(opts){
   };
 
 }
+
+/**
+* Expose `plugin`.
+*/
+
+module.exports = plugin;
