@@ -8,20 +8,20 @@ var fs = require('fs');
 */
 
 function plugin(opts){
-  var obj = {};
-  var dir = opts.dir;
-  var stats =  fs.lstatSync(dir);
+  const result = [];
+  const dir = opts.dir;
+  const stats =  fs.lstatSync(dir);
 
   if (stats.isDirectory()) {
     fs.readdir(dir, function(err, files) {
-      files.forEach(function (file) {
+      files.sort().forEach(function (file) {
         if (file.indexOf('.json') !== -1) {
-          var path = dir + file;
-          var basename = file.slice(0, -5);
+          const path = dir + file;
+          const basename = file.slice(0, -5);
 
           fs.readFile(path, 'utf8', function (err, data) {
             if (err) { throw err; }
-              obj[basename] = JSON.parse(data);
+            result.push(JSON.parse(data));
           });
         }
       });
@@ -29,8 +29,8 @@ function plugin(opts){
   }
 
   return function(files, metalsmith, done){
-    var metadata = metalsmith.metadata();
-    metadata.json = obj;
+    const metadata = metalsmith.metadata();
+    metadata.json = result;
     done();
   };
 
